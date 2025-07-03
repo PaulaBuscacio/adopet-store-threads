@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.CompletableFuture;
+
 @RestController
 @RequestMapping("admin/relatorios")
 public class RelatorioController {
@@ -16,13 +18,13 @@ public class RelatorioController {
     private RelatorioService service;
 
     @GetMapping("estoque")
-    public ResponseEntity<RelatorioEstoque> obterInfoEstoque(){
+    public ResponseEntity<CompletableFuture<RelatorioEstoque>> obterInfoEstoque(){
         var relatorio = service.infoEstoque();
         return ResponseEntity.ok(relatorio);
     }
 
     @GetMapping("faturamento")
-    public ResponseEntity<RelatorioFaturamento> obterInfoFaturamento(){
+    public ResponseEntity<CompletableFuture<RelatorioFaturamento>> obterInfoFaturamento(){
         var relatorio = service.faturamentoObtido();
         return ResponseEntity.ok(relatorio);
     }

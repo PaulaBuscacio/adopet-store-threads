@@ -1,9 +1,7 @@
 package br.com.alura.adopetstore.email;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,7 +13,7 @@ public class EnviadorEmail {
     public void enviarEmail(String assunto, String destinatario, String textoEmail) {
         try {
 //            Código para envio de email real
-//            var email = new SimpleMailMessage();
+//           var email = new SimpleMailMessage();
 //            email.setFrom("adopet@email.com.br");
 //            email.setSubject(assunto);
 //            email.setTo(destinatario);

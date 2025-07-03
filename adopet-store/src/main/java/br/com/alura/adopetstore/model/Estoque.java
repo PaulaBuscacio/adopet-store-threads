@@ -7,6 +7,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import org.hibernate.annotations.DialectOverride;
+import org.springframework.data.annotation.Version;
 
 import java.util.Objects;
 
@@ -19,12 +21,15 @@ public class Estoque {
     private Integer quantidade;
     @OneToOne
     private Produto produto;
+    @Version
+    private Integer versao;
 
     public Estoque(){}
 
     public Estoque(Integer quantidade, Produto produto) {
         this.quantidade = quantidade;
         this.produto = produto;
+        this.versao = 0;
     }
 
     public Long getId() {
@@ -33,6 +38,10 @@ public class Estoque {
 
     public Integer getQuantidade() {
         return quantidade;
+    }
+
+    public Integer getVersao() {
+        return versao;
     }
 
     public Produto getProduto() {
